@@ -264,10 +264,10 @@ nav {
 .aqua { background-image: url('../img/abyss-s3_compressed.webp'); }
 
 /* High-Res Overrides (High-Quality WebP) */
-.aero.is-loaded { background-image: url('../img/vultur-x1_highres.webp'); }
-.orbit.is-loaded { background-image: url('../img/sentinel-o1_highres.webp'); }
-.terra.is-loaded { background-image: url('../img/golem-t4_highres.webp'); }
-.aqua.is-loaded { background-image: url('../img/abyss-s3_highres.webp'); }
+.aero.is-loaded, .section:hover .aero.is-loaded { background-image: url('../img/vultur-x1_highres.webp'); }
+.orbit.is-loaded, .section:hover .orbit.is-loaded { background-image: url('../img/sentinel-o1_highres.webp'); }
+.terra.is-loaded, .section:hover .terra.is-loaded { background-image: url('../img/golem-t4_highres.webp'); }
+.aqua.is-loaded, .section:hover .aqua.is-loaded { background-image: url('../img/abyss-s3_highres.webp'); }
 
 /* Founders Section */
 .founders {
