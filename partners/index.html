@@ -6,7 +6,7 @@
     <title>Partners | ATA Robotics</title>
     
     <!-- Meta -->
-    <meta name="description" content="Strategic partnerships and global operations of ATA Robotics.">
+    <meta name="description" content="Strategic partnerships and global operations of ATA Robotics. Level 7 non-disclosure protocols.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,12 +19,49 @@
     <!-- External Scripts -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        .partnership-tiers {
+            padding: 8vw;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            background: #050505;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .tier h3 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--dim);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .tier ul {
+            list-style: none;
+        }
+
+        .tier li {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .tier li span {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--dim);
+            margin-top: 0.5rem;
+        }
+
         .hubs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 4rem;
             padding: 8vw;
-            border-top: 1px solid var(--accent);
+            background: #000;
         }
 
         .hub-item h3 {
@@ -32,11 +69,18 @@
             margin-bottom: 1rem;
         }
 
-        .hub-item p {
-            font-size: 0.8rem;
+        .hub-item .hub-label {
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: var(--dim);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hub-item p {
+            font-size: 0.85rem;
+            color: #aaa;
             line-height: 1.8;
         }
 
@@ -61,6 +105,19 @@
             font-size: 1.1rem;
             color: #ccc;
             line-height: 2;
+            margin-bottom: 3rem;
+        }
+
+        .protocol-box {
+            border: 1px solid var(--accent);
+            padding: 2rem;
+            display: inline-block;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--dim);
         }
     </style>
 </head>
@@ -76,38 +133,65 @@
         </div>
     </nav>
 
-    <header class="hero" style="height: 60vh; background-attachment: scroll;">
+    <header class="hero" style="height: 50vh; background-attachment: scroll;">
         <h1>Partners</h1>
-        <p>Strategic engagement. Global operations.</p>
+        <p>Strategic Engagement // Operational Coordination</p>
     </header>
+
+    <section class="partnership-tiers">
+        <div class="tier">
+            <h3>Capability Tiers</h3>
+            <ul>
+                <li>Persistent Surveillance <span>Global-scale signals intelligence and visual monitoring across the "Free Layer."</span></li>
+                <li>Kinetic Logistics <span>Autonomous payload delivery in contested or unmapped terrain.</span></li>
+                <li>Sub-Aquatic Infrastructure <span>Integrity monitoring and severance capability at full ocean depth.</span></li>
+            </ul>
+        </div>
+        <div class="tier">
+            <h3>Engagement Protocols</h3>
+            <ul>
+                <li>Bilateral Strategic Agreements <span>Customized operational parameters governed by international law.</span></li>
+                <li>Level 7 Non-Disclosure <span>Full technical masking and compartmentalized project execution.</span></li>
+                <li>Górecki-Spec Integration <span>Direct hardware/software synchronization with client-side architecture.</span></li>
+            </ul>
+        </div>
+    </section>
 
     <div class="hubs-grid">
         <div class="hub-item">
+            <span class="hub-label">Primary R&D Hub</span>
             <h3>Zielona Góra</h3>
-            <p>Primary R&D Hub<br>Poland, EU</p>
+            <p>Neural Core Development<br>Materials Integrity Testing<br>Górecki-Spec Architecture</p>
         </div>
         <div class="hub-item">
+            <span class="hub-label">Strategic Liaison</span>
             <h3>Warsaw</h3>
-            <p>Strategic Operations<br>Poland, EU</p>
+            <p>Strategic Partnership Management<br>Geopolitical Risk Assessment<br>Legal Operations</p>
         </div>
         <div class="hub-item">
+            <span class="hub-label">Holding & Finance</span>
             <h3>Luxembourg</h3>
-            <p>Global Finance / Holding<br>Luxembourg, EU</p>
+            <p>Asset Management<br>Sovereign Fund Coordination<br>Operational Financing</p>
         </div>
         <div class="hub-item">
+            <span class="hub-label">Advanced Manufacturing</span>
             <h3>Shanghai</h3>
-            <p>Advanced Manufacturing<br>China</p>
+            <p>High-Precision Component Fab<br>Scramjet Assembly<br>Autonomous Mass-Production</p>
         </div>
         <div class="hub-item">
+            <span class="hub-label">Aero/Orbit Operations</span>
             <h3>Austin</h3>
-            <p>Aero / Orbit Operations<br>Texas, USA</p>
+            <p>High-Altitude Flight Testing<br>Orbital Launch Coordination<br>Telemetry Command Center</p>
         </div>
     </div>
 
     <section class="nda-section">
-        <h2>Level 7 Protocols</h2>
+        <h2>Strategic Protocols</h2>
         <div class="nda-text">
-            Engagements with ATA Robotics are governed by bilateral strategic agreements. All technical exchanges and operational evaluations are conducted under strict non-disclosure protocols. We do not maintain a public list of active client states or institutional partners.
+            ATA Robotics does not maintain a public list of client states or strategic partners. Engagements at this level are governed by bilateral strategic agreements. All technical exchanges and operational evaluations are conducted under strict non-disclosure protocols.
+        </div>
+        <div class="protocol-box">
+            STATUS: ENCRYPTED // LEVEL_7_NDA_ACTIVE // ACCESS_RESTRICTED
         </div>
     </section>
 

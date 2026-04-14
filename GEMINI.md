@@ -8,7 +8,7 @@ ATA Robotics operates at the intersection of exploration and defense, focusing o
 
 ## ⚙️ The Assets (Flagship Products)
 - **🦅 AERO: Vultur-X1**
-  - Hypersonic (Mach 6.8) autonomous platform operating in "the free layer" (80k–140k ft).
+  - Hypersonic (Mach 6.8) autonomous platform operating in "the free layer" (24k–42k m).
   - Hybrid scramjet-electric propulsion. Modular payload. Operational autonomy with no ground input.
 - **🛰️ ORBIT: Sentinel-O1**
   - Maneuverable autonomous orbital vehicle (not a traditional satellite).
