@@ -1,3 +1,26 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
 :root {
     --bg: #000;
     --text: #fff;
@@ -84,7 +107,7 @@ nav {
     padding: 2rem;
     position: relative;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat fixed;
+                url('../img/homepage_hero_compressed.webp') center/cover no-repeat fixed;
 }
 
 .hero h1 {
@@ -230,10 +253,10 @@ nav {
 }
 
 /* Domain Images */
-.aero { background-image: url('../img/vultur-x1.png'); }
-.orbit { background-image: url('../img/sentinel-o1.png'); }
-.terra { background-image: url('../img/golem-t4.png'); }
-.aqua { background-image: url('../img/abyss-s3.png'); }
+.aero { background-image: url('../img/vultur-x1_compressed.webp'); }
+.orbit { background-image: url('../img/sentinel-o1_compressed.webp'); }
+.terra { background-image: url('../img/golem-t4_compressed.webp'); }
+.aqua { background-image: url('../img/abyss-s3_compressed.webp'); }
 
 /* Founders Section */
 .founders {
@@ -373,6 +396,7 @@ footer {
 
     .hero {
         background-attachment: scroll;
+        filter: none !important;
     }
 
     .hero h1 { 
@@ -387,11 +411,16 @@ footer {
         min-height: auto;
     }
 
-    .section-image {
+    .section-image, .asset-image, 
+    .section:hover .section-image,
+    .asset-image:hover {
         width: 100%;
         height: 40vh;
         margin-top: 2rem;
         order: -1; /* Image first on mobile for better flow */
+        filter: none !important;
+        transform: none !important;
+        flex: none;
     }
 
     .section:nth-child(even) .section-image {
