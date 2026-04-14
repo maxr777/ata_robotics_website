@@ -108,7 +108,6 @@ nav {
     position: relative;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                 url('../img/homepage_hero_compressed.webp') center/cover no-repeat fixed;
-    transition: background-image 2s ease;
 }
 
 .hero.is-loaded {
@@ -188,7 +187,7 @@ nav {
     background-size: cover;
     background-position: center;
     filter: grayscale(1) contrast(1.1);
-    transition: filter 1.2s var(--transition), transform 1.2s var(--transition), background-image 1.5s ease;
+    transition: filter 1.2s var(--transition), transform 1.2s var(--transition);
     border: 1px solid var(--accent);
 }
 
@@ -251,7 +250,7 @@ nav {
     border: 1px solid var(--accent);
     margin-bottom: 3rem;
     filter: grayscale(1) contrast(1.1);
-    transition: filter 0.8s var(--transition), background-image 1.5s ease;
+    transition: filter 0.8s var(--transition);
 }
 
 .asset-image:hover {
