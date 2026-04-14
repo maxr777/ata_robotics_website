@@ -5,11 +5,11 @@ function upgradeImages() {
     const sections = document.querySelectorAll('.section-image, .asset-image, .hero');
     
     sections.forEach(el => {
-        const imageProperty = el.matches('.hero') ? 'backgroundImage' : '--image-url';
         const computedStyle = window.getComputedStyle(el);
+        const variableValue = computedStyle.getPropertyValue('--image-url').trim();
         const backgroundValue = el.matches('.hero')
             ? computedStyle.backgroundImage
-            : computedStyle.getPropertyValue('--image-url');
+            : (variableValue && variableValue !== 'none' ? variableValue : computedStyle.backgroundImage);
         const match = backgroundValue.match(/url\(['"]?([^'")]+_compressed\.webp)['"]?\)/);
         
         if (match) {
@@ -19,10 +19,10 @@ function upgradeImages() {
             const img = new Image();
             img.src = highResUrl;
             img.onload = () => {
-                if (imageProperty === 'backgroundImage') {
+                if (el.matches('.hero')) {
                     el.style.backgroundImage = backgroundValue.replace(/_compressed\.webp/g, '_highres.webp');
                 } else {
-                    el.style.setProperty(imageProperty, `url('${highResUrl}')`);
+                    el.style.setProperty('--image-url', `url('${highResUrl}')`);
                 }
                 
                 el.classList.add('is-loaded');
