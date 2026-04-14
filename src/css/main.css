@@ -108,6 +108,12 @@ nav {
     position: relative;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                 url('../img/homepage_hero_compressed.webp') center/cover no-repeat fixed;
+    transition: background-image 2s ease;
+}
+
+.hero.is-loaded {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('../img/homepage_hero_highres.webp') center/cover no-repeat fixed;
 }
 
 .hero h1 {
@@ -182,7 +188,7 @@ nav {
     background-size: cover;
     background-position: center;
     filter: grayscale(1) contrast(1.1);
-    transition: filter 1.2s var(--transition), transform 1.2s var(--transition);
+    transition: filter 1.2s var(--transition), transform 1.2s var(--transition), background-image 1.5s ease;
     border: 1px solid var(--accent);
 }
 
@@ -245,7 +251,7 @@ nav {
     border: 1px solid var(--accent);
     margin-bottom: 3rem;
     filter: grayscale(1) contrast(1.1);
-    transition: filter 0.8s var(--transition);
+    transition: filter 0.8s var(--transition), background-image 1.5s ease;
 }
 
 .asset-image:hover {
@@ -257,6 +263,12 @@ nav {
 .orbit { background-image: url('../img/sentinel-o1_compressed.webp'); }
 .terra { background-image: url('../img/golem-t4_compressed.webp'); }
 .aqua { background-image: url('../img/abyss-s3_compressed.webp'); }
+
+/* High-Res Overrides (High-Quality WebP) */
+.aero.is-loaded { background-image: url('../img/vultur-x1_highres.webp'); }
+.orbit.is-loaded { background-image: url('../img/sentinel-o1_highres.webp'); }
+.terra.is-loaded { background-image: url('../img/golem-t4_highres.webp'); }
+.aqua.is-loaded { background-image: url('../img/abyss-s3_highres.webp'); }
 
 /* Founders Section */
 .founders {
