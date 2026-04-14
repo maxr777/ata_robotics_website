@@ -339,19 +339,61 @@ footer {
 }
 
 @media (max-width: 900px) {
+    nav {
+        padding: 1rem 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+    }
+
+    .nav-links a {
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+    }
+
+    .hero h1 { 
+        font-size: clamp(2rem, 12vw, 3.5rem); 
+    }
+
     .section, .founders {
         grid-template-columns: 1fr;
         flex-direction: column !important;
         text-align: left !important;
-        padding: 4rem 2rem;
+        padding: 4rem 1.5rem;
+        min-height: auto;
     }
+
     .section-image {
         width: 100%;
-        height: 50vh;
+        height: 40vh;
         margin-top: 2rem;
+        order: -1; /* Image first on mobile for better flow */
     }
+
+    .section:nth-child(even) .section-image {
+        order: -1;
+    }
+
     .tech-specs {
         grid-template-columns: 1fr;
     }
-    .hero h1 { font-size: 4rem; }
+
+    .manifesto-callout {
+        padding: 8rem 1.5rem;
+    }
+
+    .jobs-grid {
+        grid-template-columns: 1fr !important;
+        padding: 2rem 1.5rem !important;
+    }
+
+    .spec-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
+
