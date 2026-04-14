@@ -84,7 +84,7 @@ nav {
     padding: 2rem;
     position: relative;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat fixed;
+                url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat fixed;
 }
 
 .hero h1 {
@@ -214,11 +214,26 @@ nav {
     margin-bottom: 0;
 }
 
+.asset-image {
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--accent);
+    margin-bottom: 3rem;
+    filter: grayscale(1) contrast(1.1);
+    transition: filter 0.8s var(--transition);
+}
+
+.asset-image:hover {
+    filter: grayscale(0.2) contrast(1);
+}
+
 /* Domain Images */
-.aero { background-image: url('https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&q=80&w=1200'); }
-.orbit { background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=1200'); }
-.terra { background-image: url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1200'); }
-.aqua { background-image: url('https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&q=80&w=1200'); }
+.aero { background-image: url('../img/vultur-x1.png'); }
+.orbit { background-image: url('../img/sentinel-o1.png'); }
+.terra { background-image: url('../img/golem-t4.png'); }
+.aqua { background-image: url('../img/abyss-s3.png'); }
 
 /* Founders Section */
 .founders {
@@ -354,6 +369,10 @@ footer {
     .nav-links a {
         font-size: 0.6rem;
         letter-spacing: 0.15em;
+    }
+
+    .hero {
+        background-attachment: scroll;
     }
 
     .hero h1 { 
