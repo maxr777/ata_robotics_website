@@ -25,7 +25,7 @@
     --bg: #000;
     --text: #fff;
     --accent: #222;
-    --dim: #666;
+    --dim: #8d8779;
     --transition: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -131,7 +131,8 @@ nav {
     font-weight: 400;
     opacity: 0;
     animation: fadeInUp 1.8s var(--transition) 0.4s forwards;
-    color: var(--dim);
+    color: #f1e7d4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75), 0 0 18px rgba(0, 0, 0, 0.45);
 }
 
 /* Manifesto Split */
@@ -183,16 +184,9 @@ nav {
 .section-image {
     flex: 1.6;
     height: 85vh;
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(1) contrast(1.1);
-    transition: filter 1.2s var(--transition), transform 1.2s var(--transition);
+    position: relative;
+    overflow: hidden;
     border: 1px solid var(--accent);
-}
-
-.section:hover .section-image {
-    filter: grayscale(0.2) contrast(1);
-    transform: scale(1.02);
 }
 
 .label {
@@ -244,23 +238,39 @@ nav {
 .asset-image {
     width: 100%;
     height: 50vh;
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    overflow: hidden;
     border: 1px solid var(--accent);
     margin-bottom: 3rem;
-    filter: grayscale(1) contrast(1.1);
-    transition: filter 0.8s var(--transition);
 }
 
-.asset-image:hover {
+.section-image::before,
+.asset-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--image-url);
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(1) contrast(1.1);
+    transform: scale(1);
+    transition: filter 1.2s var(--transition), transform 1.2s var(--transition);
+    will-change: filter, transform;
+    backface-visibility: hidden;
+    transform-origin: center;
+}
+
+.section:hover .section-image::before,
+.asset-image:hover::before {
     filter: grayscale(0.2) contrast(1);
+    transform: scale(1.02);
 }
 
 /* Domain Images */
-.aero { background-image: url('../img/vultur-x1_compressed.webp'); }
-.orbit { background-image: url('../img/sentinel-o1_compressed.webp'); }
-.terra { background-image: url('../img/golem-t4_compressed.webp'); }
-.aqua { background-image: url('../img/abyss-s3_compressed.webp'); }
+.aero { --image-url: url('../img/vultur-x1_compressed.webp'); }
+.orbit { --image-url: url('../img/sentinel-o1_compressed.webp'); }
+.terra { --image-url: url('../img/golem-t4_compressed.webp'); }
+.aqua { --image-url: url('../img/abyss-s3_compressed.webp'); }
 
 /* High-Res Signal (Handled via JS inline styles for maximum stability) */
 .is-loaded {
@@ -369,14 +379,32 @@ footer {
     bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid rgba(241, 231, 212, 0.45);
+    border-radius: 999px;
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     animation: bounce 2.5s infinite;
-    color: var(--dim);
+    color: #f1e7d4;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .scroll-indicator:hover {
     color: #fff;
+    border-color: rgba(255, 255, 255, 0.9);
+    background: rgba(20, 20, 20, 0.72);
+}
+
+.scroll-indicator svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    stroke-width: 2.4;
 }
 
 @keyframes bounce {
@@ -427,9 +455,15 @@ footer {
         height: 40vh;
         margin-top: 2rem;
         order: -1; /* Image first on mobile for better flow */
+        flex: none;
+    }
+
+    .section-image::before,
+    .asset-image::before,
+    .section:hover .section-image::before,
+    .asset-image:hover::before {
         filter: none !important;
         transform: none !important;
-        flex: none;
     }
 
     .section:nth-child(even) .section-image {
@@ -453,4 +487,3 @@ footer {
         grid-template-columns: 1fr !important;
     }
 }
-
