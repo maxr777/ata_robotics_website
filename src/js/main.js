@@ -1,33 +1,48 @@
 // Progressive Enhancement: Upgrade images to high-res after initial load
 window.addEventListener('load', () => {
-    // 1.5s delay after page load completes to ensure a smooth transition
+    // 1s initial delay to allow page stability before starting background loads
     setTimeout(() => {
-        const sections = document.querySelectorAll('.section-image, .asset-image');
+        const sections = document.querySelectorAll('.section-image, .asset-image, .hero');
         
         sections.forEach(el => {
-            // Apply the 'is-loaded' class to trigger CSS background-image swap
-            el.classList.add('is-loaded');
+            let currentBg = '';
             
-            // Handle elements with inline styles (specifically for subpages like Fleet)
+            // 1. Check inline styles first (more specific)
             const inlineStyle = el.getAttribute('style');
             if (inlineStyle && inlineStyle.includes('_compressed.webp')) {
-                // Swap the WebP URL for the High-Res WebP URL in the inline style
-                const highResUrl = inlineStyle.replace('_compressed.webp', '_highres.webp');
-                el.style.backgroundImage = `url('${highResUrl}')`;
+                const match = inlineStyle.match(/url\(['"]?([^'"]+_compressed\.webp)['"]?\)/);
+                if (match) currentBg = match[1];
+            }
+            
+            // 2. Fallback to computed style (for CSS-defined backgrounds)
+            if (!currentBg) {
+                const computedStyle = window.getComputedStyle(el).backgroundImage;
+                if (computedStyle && computedStyle.includes('_compressed.webp')) {
+                    const match = computedStyle.match(/url\(['"]?([^'"]+_compressed\.webp)['"]?\)/);
+                    if (match) currentBg = match[1];
+                }
+            }
+
+            // 3. If we found a compressed URL, prepare the high-res one
+            if (currentBg) {
+                // Remove potential quotes from the extracted URL
+                const cleanUrl = currentBg.replace(/['"]/g, '');
+                const highResUrl = cleanUrl.replace('_compressed.webp', '_highres.webp');
+                
+                // Pre-cache the high-res image
+                const img = new Image();
+                img.src = highResUrl;
+                img.onload = () => {
+                    // Update inline style directly if it exists (handles Fleet/Hero)
+                    if (inlineStyle && inlineStyle.includes('_compressed.webp')) {
+                        const newStyle = inlineStyle.replace('_compressed.webp', '_highres.webp');
+                        el.setAttribute('style', newStyle);
+                    }
+                    
+                    // Add the 'is-loaded' class for CSS-defined swaps (handles Domain sections)
+                    el.classList.add('is-loaded');
+                };
             }
         });
-        
-        // Upgrade the Hero section if present
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.classList.add('is-loaded');
-            
-            // Handle inline hero backgrounds (e.g., Fleet/Careers)
-            const heroStyle = hero.getAttribute('style');
-            if (heroStyle && heroStyle.includes('_compressed.webp')) {
-                const highResHero = heroStyle.replace('_compressed.webp', '_highres.webp');
-                hero.style.backgroundImage = `url('${highResHero}')`;
-            }
-        }
-    }, 1500);
+    }, 1000);
 });
