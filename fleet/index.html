@@ -6,7 +6,7 @@
     <title>Fleet | ATA Robotics</title>
     
     <!-- Meta -->
-    <meta name="description" content="Technical catalog for the ATA Robotics autonomous fleet. Aero, Orbit, Terra, Aqua.">
+    <meta name="description" content="Technical catalog for the ATA Robotics autonomous fleet. Detailed asset specifications for the 2036 horizon.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +18,84 @@
     
     <!-- External Scripts -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--accent);
+            padding-top: 2rem;
+        }
+
+        .spec-category {
+            margin-bottom: 2rem;
+        }
+
+        .spec-category h4 {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--dim);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .spec-category ul {
+            list-style: none;
+        }
+
+        .spec-category li {
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+        }
+
+        .spec-category li span:first-child {
+            color: var(--dim);
+        }
+
+        .spec-category li span:last-child {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .asset-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        .asset-header h2 {
+            font-size: 3.5rem;
+            margin-bottom: 0;
+        }
+
+        .asset-code {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.5em;
+            color: var(--dim);
+            text-transform: uppercase;
+        }
+
+        .technical-block {
+            background: #050505;
+            padding: 10vh 8vw;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .asset-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .asset-header h2 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -31,126 +109,170 @@
         </div>
     </nav>
 
-    <header class="hero" style="height: 60vh; background-attachment: scroll;">
-        <h1>The Fleet</h1>
-        <p>Operational assets for the 2036 horizon.</p>
+    <header class="hero" style="height: 50vh; background-attachment: scroll;">
+        <h1>Technical Catalog</h1>
+        <p>Asset Specifications // Rev. 2036.04</p>
     </header>
 
-    <!-- Domain 01: Aero -->
-    <section class="section" id="aero">
-        <div class="section-content">
-            <span class="label">Domain 01 / Aero</span>
-            <h2>Vultur-X1 Hypersonic</h2>
-            <p>An autonomous stratospheric platform designed for persistent presence in "the free layer." Operating above traditional intercept envelopes, the X1 provides a global reach with a response window measured in seconds.</p>
-            <div class="tech-specs">
-                <div>
-                    <span>Cruise Speed</span>
-                    <p>Mach 5.2 (Sustained)</p>
-                </div>
-                <div>
-                    <span>Operational Ceiling</span>
-                    <p>105,000 FT</p>
-                </div>
-                <div>
-                    <span>Payload Capacity</span>
-                    <p>Modular / Mission-Dependent</p>
-                </div>
-                <div>
-                    <span>Propulsion</span>
-                    <p>Solid-State Scramjet Hybrid</p>
-                </div>
+    <!-- Vultur-X1 -->
+    <section class="technical-block" id="aero">
+        <div class="asset-header">
+            <h2>Vultur-X1</h2>
+            <div class="asset-code">ASSET_CLASS: AERO_HYPERSONIC</div>
+        </div>
+        <p style="max-width: 800px; color: #aaa; margin-bottom: 3rem; line-height: 1.8;">The Vultur-X1 is a strategic autonomous platform designed for persistent presence in the "Free Layer" (80,000–140,000 ft). Utilizing a hybrid scramjet-electric propulsion system, it achieves sustained Mach 5.2 cruise speeds, rendering traditional intercept envelopes irrelevant.</p>
+        
+        <div class="spec-grid">
+            <div class="spec-category">
+                <h4>Performance</h4>
+                <ul>
+                    <li><span>Cruise Velocity</span> <span>Mach 5.2</span></li>
+                    <li><span>Max Dash Speed</span> <span>Mach 6.8</span></li>
+                    <li><span>Operational Radius</span> <span>18,500 KM</span></li>
+                    <li><span>Max Ceiling</span> <span>145,000 FT</span></li>
+                </ul>
+            </div>
+            <div class="spec-category">
+                <h4>Airframe & Materials</h4>
+                <ul>
+                    <li><span>Chassis</span> <span>Carbon-Phonon Lattice</span></li>
+                    <li><span>Heat Shield</span> <span>Regenerative Transpiration</span></li>
+                    <li><span>Radar Cross-Sec</span> <span>< 0.001 m²</span></li>
+                    <li><span>Thermal Sig</span> <span>Active Diffuse</span></li>
+                </ul>
+            </div>
+            <div class="spec-category">
+                <h4>Avionics & Logic</h4>
+                <ul>
+                    <li><span>Neural Core</span> <span>Górecki-V4 Hyperscale</span></li>
+                    <li><span>Sensor Suite</span> <span>Multi-Spec SAR / Lidar</span></li>
+                    <li><span>Targeting</span> <span>Autonomous Prioritization</span></li>
+                    <li><span>Uplink</span> <span>Encrypted Laser-Relay</span></li>
+                </ul>
             </div>
         </div>
-        <div class="section-image aero"></div>
     </section>
 
-    <!-- Domain 02: Orbit -->
-    <section class="section" id="orbit">
-        <div class="section-content">
-            <span class="label">Domain 02 / Orbit</span>
-            <h2>Sentinel-O1 (OSAM)</h2>
-            <p>Maneuverable orbital logistics and infrastructure integrity assets. Capable of autonomous rendezvous and proximity operations (RPO) in LEO/MEO. Sentinel-O1 is the backbone of the next-generation orbital economy.</p>
-            <div class="tech-specs">
-                <div>
-                    <span>Propulsion</span>
-                    <p>High-ISP Hall Effect Thruster</p>
-                </div>
-                <div>
-                    <span>Mission Life</span>
-                    <p>8-Year Standard Cycle</p>
-                </div>
-                <div>
-                    <span>Autonomy Level</span>
-                    <p>Górecki-Spec RPO Layer</p>
-                </div>
-                <div>
-                    <span>Configuration</span>
-                    <p>Modular Servicing Bay</p>
-                </div>
+    <!-- Sentinel-O1 -->
+    <section class="technical-block" id="orbit">
+        <div class="asset-header">
+            <h2>Sentinel-O1</h2>
+            <div class="asset-code">ASSET_CLASS: ORBITAL_OSAM</div>
+        </div>
+        <p style="max-width: 800px; color: #aaa; margin-bottom: 3rem; line-height: 1.8;">Sentinel-O1 is a maneuverable On-Orbit Servicing, Assembly, and Manufacturing (OSAM) asset. Beyond debris management, it provides persistent infrastructure integrity and RPO (Rendezvous/Proximity Operations) capability for high-value orbital assets.</p>
+        
+        <div class="spec-grid">
+            <div class="spec-category">
+                <h4>Propulsion</h4>
+                <ul>
+                    <li><span>Primary Drive</span> <span>Hall Effect (Xenon-Ion)</span></li>
+                    <li><span>Delta-V</span> <span>4,500 m/s</span></li>
+                    <li><span>RCS</span> <span>Cold Gas / Nitrogen</span></li>
+                    <li><span>Station Keeping</span> <span>Autonomous AI-Comp</span></li>
+                </ul>
+            </div>
+            <div class="spec-category">
+                <h4>Power & Comm</h4>
+                <ul>
+                    <li><span>Solar Arrays</span> <span>Flexible Perovskite (30kW)</span></li>
+                    <li><span>Energy Storage</span> <span>Graphene-Li Hybrid</span></li>
+                    <li><span>Bandwidth</span> <span>10 Gbps (Ka-Band)</span></li>
+                    <li><span>Signal Integrity</span> <span>Quantum-Key Ready</span></li>
+                </ul>
+            </div>
+            <div class="spec-category">
+                <h4>Manipulation</h4>
+                <ul>
+                    <li><span>Robotic Arms</span> <span>Dual 6-DOF (Cryo-Rated)</span></li>
+                    <li><span>Tool-Change</span> <span>Standard OSAM Interface</span></li>
+                    <li><span>Max Reach</span> <span>4.2 Meters</span></li>
+                    <li><span>Load Rating</span> <span>500 KG (Inertial)</span></li>
+                </ul>
             </div>
         </div>
-        <div class="section-image orbit"></div>
     </section>
 
-    <!-- Domain 03: Terra -->
-    <section class="section" id="terra">
-        <div class="section-content">
-            <span class="label">Domain 03 / Terra</span>
-            <h2>Golem-T4 Multi-Terrain</h2>
-            <p>Designed for the "contested environments" of 2036. An eight-limbed autonomous heavy unit capable of navigating industrial wreckage, arctic permafrost, and active conflict zones without human intervention.</p>
-            <div class="tech-specs">
-                <div>
-                    <span>Rated Payload</span>
-                    <p>850 KG (Internal)</p>
-                </div>
-                <div>
-                    <span>Locomotion</span>
-                    <p>Octopedal Adaptive Gait</p>
-                </div>
-                <div>
-                    <span>Logic Layer</span>
-                    <p>Full-Offline Neural Edge</p>
-                </div>
-                <div>
-                    <span>Runtime</span>
-                    <p>120+ Hours (Standard Power)</p>
-                </div>
+    <!-- Golem-T4 -->
+    <section class="technical-block" id="terra">
+        <div class="asset-header">
+            <h2>Golem-T4</h2>
+            <div class="asset-code">ASSET_CLASS: TERRESTRIAL_MULTIMODAL</div>
+        </div>
+        <p style="max-width: 800px; color: #aaa; margin-bottom: 3rem; line-height: 1.8;">The Golem-T4 is the definitive platform for "contested environment" operations. Its octopedal design allows for traversal of rubble, permafrost, and jungle terrain with a 1,200kg rated payload. The system operates fully offline, prioritizing survival and objective completion.</p>
+        
+        <div class="spec-grid">
+            <div class="spec-category">
+                <h4>Locomotion</h4>
+                <ul>
+                    <li><span>Configuration</span> <span>Octopedal (8-Limb)</span></li>
+                    <li><span>Actuators</span> <span>Electro-Active Polymers</span></li>
+                    <li><span>Max Velocity</span> <span>45 KM/H (Flat)</span></li>
+                    <li><span>Gradient Cap</span> <span>75 Degrees</span></li>
+                </ul>
+            </div>
+            <div class="spec-category">
+                <h4>Chassis</h4>
+                <ul>
+                    <li><span>Materials</span> <span>Al-Li Titanium Mesh</span></li>
+                    <li><span>Protection</span> <span>CBRN-Grade Sealant</span></li>
+                    <li><span>Ground Pressure</span> <span>0.4 PSI</span></li>
+                    <li><span>Thermal Mask</span> <span>Ambient-Match Active</span></li>
+                </ul>
+            </div>
+            <div class="spec-category">
+                <h4>Intelligence</h4>
+                <ul>
+                    <li><span>Logic Core</span> <span>Edge-Neural (3.2 ExaFLOPS)</span></li>
+                    <li><span>Decision Sync</span> <span>Offline Zero-Uplink</span></li>
+                    <li><span>Vision Suite</span> <span>360 Multi-Spectral</span></li>
+                    <li><span>Objective Prior</span> <span>Dynamic Heuristic</span></li>
+                </ul>
             </div>
         </div>
-        <div class="section-image terra"></div>
     </section>
 
-    <!-- Domain 04: Aqua -->
-    <section class="section" id="aqua">
-        <div class="section-content">
-            <span class="label">Domain 04 / Aqua</span>
-            <h2>Abyss-S3 UUV</h2>
-            <p>Sub-aquatic autonomous vehicles built for the pressure of the unknown. Utilizing pressure-adaptive syntactic-resin composites, the S3 operates silently at depths where conventional sonar arrays are ineffective.</p>
-            <div class="tech-specs">
-                <div>
-                    <span>Operational Depth</span>
-                    <p>7,500 Meters (Standard)</p>
-                </div>
-                <div>
-                    <span>Acoustic Profile</span>
-                    <p>&lt; 10dB (Ghost-Idle)</p>
-                </div>
-                <div>
-                    <span>Navigation</span>
-                    <p>Autonomous Inertial / Acoustic</p>
-                </div>
-                <div>
-                    <span>Deployment</span>
-                    <p>Multi-Vehicle Swarm Layer</p>
-                </div>
+    <!-- Abyss-S3 -->
+    <section class="technical-block" id="aqua">
+        <div class="asset-header">
+            <h2>Abyss-S3</h2>
+            <div class="asset-code">ASSET_CLASS: SUB_AQUATIC_GHOST</div>
+        </div>
+        <p style="max-width: 800px; color: #aaa; margin-bottom: 3rem; line-height: 1.8;">The Abyss-S3 operates at the absolute limit of ocean pressure. Utilizing a pressure-adaptive hull that restructures its own geometry under load, it provides full-ocean-depth mapping and infrastructure severance capability with near-zero acoustic footprint.</p>
+        
+        <div class="spec-grid">
+            <div class="spec-category">
+                <h4>Depth & Physics</h4>
+                <ul>
+                    <li><span>Max Depth</span> <span>11,500 Meters</span></li>
+                    <li><span>Hull Composite</span> <span>Syntactic-Resin Matrix</span></li>
+                    <li><span>Restructuring</span> <span>Load-Adaptive Geometry</span></li>
+                    <li><span>Buoyancy Control</span> <span>Solid-State Thermal</span></li>
+                </ul>
+            </div>
+            <div class="spec-category">
+                <h4>Acoustics & Drive</h4>
+                <ul>
+                    <li><span>Propulsion</span> <span>Magnetohydrodynamic (MHD)</span></li>
+                    <li><span>Idle Noise</span> <span>< 8 dB</span></li>
+                    <li><span>Cruise Speed</span> <span>12 Knots</span></li>
+                    <li><span>Signature</span> <span>Ghost-Spec Pattern</span></li>
+                </ul>
+            </div>
+            <div class="spec-category">
+                <h4>Comms & Nav</h4>
+                <ul>
+                    <li><span>Primary Nav</span> <span>Bathymetric SLAM</span></li>
+                    <li><span>Data Link</span> <span>ULF Acoustic Modem</span></li>
+                    <li><span>Sensor Array</span> <span>Synthetic Aperture Sonar</span></li>
+                    <li><span>Swarm Logic</span> <span>Acoustic-Mesh V3</span></li>
+                </ul>
             </div>
         </div>
-        <div class="section-image aqua"></div>
     </section>
 
     <footer>
         <a href="mailto:ops@ata.robotics" class="contact-link">Establish Connection</a>
-        <p class="copyright">&copy; 2026 ATA ROBOTICS. ZIELONA GÓRA / WARSAW / GLOBAL.</p>
+        <p class="copyright">&copy; 2026 ATA ROBOTICS. STRATEGIC INTEGRITY FIRST.</p>
     </footer>
 
     <!-- Scripts -->
