@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | ATA Robotics</title>
+    
+    <!-- Meta -->
+    <meta name="description" content="Join ATA Robotics. Building autonomous systems for the final frontiers.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/css/main.css">
+    
+    <!-- External Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+            padding: 8vw;
+            background: #050505;
+        }
+
+        .job-card {
+            border: 1px solid var(--accent);
+            padding: 3rem;
+            transition: border-color 0.5s var(--transition);
+        }
+
+        .job-card:hover {
+            border-color: var(--dim);
+        }
+
+        .job-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-location {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--dim);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .job-card p {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .apply-btn {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid var(--dim);
+            padding-bottom: 5px;
+            transition: border-color 0.3s;
+        }
+
+        .apply-btn:hover {
+            border-color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .jobs-grid { grid-template-columns: 1fr; padding: 4rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">ATA ROBOTICS</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/fleet/">Fleet</a>
+            <a href="/careers/">Careers</a>
+            <a href="/partners/">Partners</a>
+        </div>
+    </nav>
+
+    <header class="hero" style="height: 60vh; background-attachment: scroll;">
+        <h1>Careers</h1>
+        <p>Find comfort in the impossible.</p>
+    </header>
+
+    <section class="manifesto-callout">
+        <blockquote>"The question was never whether the machine could do it. The question was whether we'd bother limiting it."</blockquote>
+        <cite>Alan Górecki, CTO</cite>
+    </section>
+
+    <div class="jobs-grid">
+        <!-- Lead Systems Architect -->
+        <div class="job-card">
+            <span class="job-location">Zielona Góra, Poland</span>
+            <h3>Lead Systems Architect</h3>
+            <p>Design and implement the core autonomous logic for the Górecki-spec neural framework. You will be responsible for decision-making architectures that operate in full isolation from ground control.</p>
+            <a href="mailto:careers@ata.robotics" class="apply-btn">Inquire</a>
+        </div>
+
+        <!-- Propulsion Specialist -->
+        <div class="job-card">
+            <span class="job-location">Austin, TX</span>
+            <h3>Propulsion Specialist</h3>
+            <p>Develop the next generation of hybrid scramjet and high-ISP Hall Effect propulsion systems. Experience with high-temperature materials and orbital mechanics required.</p>
+            <a href="mailto:careers@ata.robotics" class="apply-btn">Inquire</a>
+        </div>
+
+        <!-- Materials Engineer -->
+        <div class="job-card">
+            <span class="job-location">Shanghai, China</span>
+            <h3>Materials Engineer</h3>
+            <p>Focus on pressure-adaptive syntactic resins and carbon-core composites for full-ocean-depth and hypersonic environments. You will be operating at the frontier of materials science.</p>
+            <a href="mailto:careers@ata.robotics" class="apply-btn">Inquire</a>
+        </div>
+
+        <!-- Operational Intelligence Analyst -->
+        <div class="job-card">
+            <span class="job-location">Warsaw, Poland</span>
+            <h3>Intelligence Analyst</h3>
+            <p>Bridge the gap between technical capability and geopolitical necessity. Analyze global "contested environments" to define the mission sets for our autonomous platforms.</p>
+            <a href="mailto:careers@ata.robotics" class="apply-btn">Inquire</a>
+        </div>
+
+        <!-- Deep-Sea Robotics Engineer -->
+        <div class="job-card">
+            <span class="job-location">Luxembourg</span>
+            <h3>Deep-Sea Engineer</h3>
+            <p>Design and test sub-aquatic autonomous vehicles for resource mapping and infrastructure integrity. Knowledge of low-acoustic profile engineering is essential.</p>
+            <a href="mailto:careers@ata.robotics" class="apply-btn">Inquire</a>
+        </div>
+
+        <!-- Field Integrity Specialist -->
+        <div class="job-card">
+            <span class="job-location">Global / Remote</span>
+            <h3>Field Specialist</h3>
+            <p>Oversee the deployment and integrity of ATA assets in high-risk environments. Requires technical expertise and the ability to operate under Level 7 non-disclosure protocols.</p>
+            <a href="mailto:careers@ata.robotics" class="apply-btn">Inquire</a>
+        </div>
+    </div>
+
+    <footer>
+        <p class="copyright">&copy; 2026 ATA ROBOTICS. BEYOND EVERY HORIZON.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/src/js/icons.js"></script>
+    <script src="/src/js/main.js"></script>
+</body>
+</html>
