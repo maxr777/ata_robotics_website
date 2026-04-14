@@ -111,8 +111,7 @@ nav {
 }
 
 .hero.is-loaded {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('../img/homepage_hero_highres.webp') center/cover no-repeat fixed;
+    /* Handled via JS inline styles for maximum stability */
 }
 
 .hero h1 {
@@ -263,11 +262,10 @@ nav {
 .terra { background-image: url('../img/golem-t4_compressed.webp'); }
 .aqua { background-image: url('../img/abyss-s3_compressed.webp'); }
 
-/* High-Res Overrides (High-Quality WebP) */
-.aero.is-loaded, .section:hover .aero.is-loaded { background-image: url('../img/vultur-x1_highres.webp'); }
-.orbit.is-loaded, .section:hover .orbit.is-loaded { background-image: url('../img/sentinel-o1_highres.webp'); }
-.terra.is-loaded, .section:hover .terra.is-loaded { background-image: url('../img/golem-t4_highres.webp'); }
-.aqua.is-loaded, .section:hover .aqua.is-loaded { background-image: url('../img/abyss-s3_highres.webp'); }
+/* High-Res Signal (Handled via JS inline styles for maximum stability) */
+.is-loaded {
+    /* Class persists for state tracking */
+}
 
 /* Founders Section */
 .founders {

@@ -1,54 +1,48 @@
 /**
  * Progressive Enhancement: Upgrade images to high-res as soon as they are ready.
- * This is triggered as soon as the DOM is ready, rather than waiting for full page load.
  */
 function upgradeImages() {
     const sections = document.querySelectorAll('.section-image, .asset-image, .hero');
     
     sections.forEach(el => {
-        let currentBg = '';
+        let currentBgUrl = '';
         
-        // 1. Extract the compressed WebP URL from inline style or computed style
-        const inlineStyle = el.getAttribute('style');
-        if (inlineStyle && inlineStyle.includes('_compressed.webp')) {
-            const match = inlineStyle.match(/url\(['"]?([^'"]+_compressed\.webp)['"]?\)/);
-            if (match) currentBg = match[1];
-        }
+        // 1. Get current background URL from either inline style or computed style
+        const computedStyle = window.getComputedStyle(el).backgroundImage;
+        const match = computedStyle.match(/url\(['"]?([^'"]+_compressed\.webp)['"]?\)/);
         
-        if (!currentBg) {
-            const computedStyle = window.getComputedStyle(el).backgroundImage;
-            if (computedStyle && computedStyle.includes('_compressed.webp')) {
-                const match = computedStyle.match(/url\(['"]?([^'"]+_compressed\.webp)['"]?\)/);
-                if (match) currentBg = match[1];
-            }
-        }
-
-        // 2. If we found a compressed URL, pre-cache the high-res version immediately
-        if (currentBg) {
-            const cleanUrl = currentBg.replace(/['"]/g, '');
-            const highResUrl = cleanUrl.replace('_compressed.webp', '_highres.webp');
+        if (match) {
+            currentBgUrl = match[1].replace(/['"]/g, '');
+            const highResUrl = currentBgUrl.replace('_compressed.webp', '_highres.webp');
             
+            // 2. Pre-cache high-res image
             const img = new Image();
             img.src = highResUrl;
             img.onload = () => {
-                // Apply the high-res image as soon as it's downloaded into the browser cache
+                /**
+                 * 3. Apply high-res directly to the inline style.
+                 * This is the strongest way to ensure the background stays locked 
+                 * and doesn't flicker when CSS classes (like :hover) are re-evaluated.
+                 */
+                const existingStyle = el.getAttribute('style') || '';
                 
-                // If the element has inline styles (like subpage heroes or fleet images), 
-                // we update the style attribute directly.
-                if (inlineStyle && inlineStyle.includes('_compressed.webp')) {
-                    const newStyle = inlineStyle.replace('_compressed.webp', '_highres.webp');
-                    el.setAttribute('style', newStyle);
+                // If the element already has a background-image in inline style, replace it.
+                // Otherwise, append the new background-image to the inline style.
+                if (existingStyle.includes('background-image')) {
+                    el.style.backgroundImage = computedStyle.replace(/_compressed\.webp/g, '_highres.webp');
+                } else {
+                    // Prepend to existing styles (like height/width)
+                    el.style.backgroundImage = `url('${highResUrl}')`;
                 }
                 
-                // For class-based backgrounds (like domain sections), adding the 'is-loaded' 
-                // class triggers the CSS background-image swap.
+                // Signal that the high-res version is active
                 el.classList.add('is-loaded');
             };
         }
     });
 }
 
-// Start the process as soon as possible
+// Kick off immediately
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', upgradeImages);
 } else {
